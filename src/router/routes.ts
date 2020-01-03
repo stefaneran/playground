@@ -1,8 +1,12 @@
-import Test from './Test.tsx';
+import HelloWorld from 'packages/helloworld';
 
 export default [
   {
-    path: '/test',
-    component: Test
+    path: '/helloworld',
+    component: HelloWorld
+  },
+  {
+    path: '/redux',
+    component: null
   }
 ]

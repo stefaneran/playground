@@ -13,6 +13,13 @@ module.exports = {
 
   entry: path.resolve(__dirname, "src/index.js"),
 
+  resolve: {
+    alias: {
+      packages: path.resolve(__dirname, './src/packages/'),
+    },
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
+  },
+
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'build.js',
