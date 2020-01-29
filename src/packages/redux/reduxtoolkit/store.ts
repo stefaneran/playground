@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addEntryStarted, addEntryFinished } from '../thunks/actions';
 
 const initialState = {
-  items: []
+  items: [],
+  loading: false
 }
 
 const slice = createSlice({
@@ -14,6 +16,15 @@ const slice = createSlice({
     deleteItem: (state, { payload }) => {
       const { items } = state;
       items.splice(items.findIndex(item => item.id === payload), 1);
+    }
+  },
+  extraReducers: {
+    [addEntryStarted]: (state) => {
+      state.loading = true;
+    },
+    [addEntryFinished]: (state, { payload }) => {
+      state.items.push(payload);
+      state.loading = false;
     }
   }
 });

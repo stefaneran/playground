@@ -1,6 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+export interface IStoreItem {
+  id: string;
+  value: number;
+}
+
 const ReduxMain = () => {
   return (
     <div>
