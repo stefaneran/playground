@@ -11,6 +11,7 @@
   "author": "Stefan Eran Milenkovic",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.9.0",
     "@reduxjs/toolkit": "^1.2.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

@@ -1,0 +1,9 @@
+
+Redux:
+- Finish setting up Classic store
+- Make component for RTK store example
+- Make both render 
+- Test add/delete
+
+Main:
+- Make route for redux work

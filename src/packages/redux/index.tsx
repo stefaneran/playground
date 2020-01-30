@@ -1,28 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import reducerRTK from './reduxtoolkit/store';
 
 export interface IStoreItem {
-  id: string;
-  value: number;
+  id: number;
+  value: string;
 }
 
-const ReduxMain = () => {
-  return (
-    <div>
-
-    </div>
-  );
-}
-
-const mapStateToProps = state => ({
-
-});
-
-const mapDispatchToProps = {
+export const initializeStoreC = () => {
   
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ReduxMain);
+export const initializeStoreRTK = (preloadedState) => {
+
+  const reducer = combineReducers({
+    reducerRTK
+  });
+
+  const store = configureStore({
+    reducer,
+    preloadedState
+  });
+
+  return store;
+}
+
+export { default as ReduxMain } from './ReduxMain';

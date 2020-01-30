@@ -1,45 +1,80 @@
-import { createAction } from '@reduxjs/toolkit';
 import { IStoreItem } from '../index';
-import { ADD_ITEM_ASYNC, addItemAsync } from '../classic/store';
+// Suffix to avoid conflict (C = Classic)
+import { 
+  requestStart as requestStartC, 
+  addItemSuccess as addItemSuccessC, 
+  addItemFail as addItemFailC, 
+  deleteItemSuccess as deleteItemSuccessC, 
+  deleteItemFail as deleteItemFailC
+} from '../classic/store';
+// Suffix to avoid conflict (RTK = ReduxToolkit)
+import { 
+  requestStart as requestStartRTK, 
+  addItemSuccess as addItemSuccessRTK, 
+  addItemFail as addItemFailRTK, 
+  deleteItemSuccess as deleteItemSuccessRTK, 
+  deleteItemFail as deleteItemFailRTK
+} from '../reduxtoolkit/store';
 
-// TODO - Make a side effect for pre-middleware example
-// TODO - Make a classic thunk 
-// TODO - Rename action names to reflect changes above
-
-export const addEntryStarted = createAction(`addEntryStarted`);
-export const addEntryFinished = createAction<IStoreItem>(`addEntryFinished`);
-
-const requestItem = async () => {
+const addItemRequest = async (items) => {
   let item: IStoreItem;
+  const itemId = items.length;
   const request = () => setTimeout(() => {
-    item = { id: "1", value: 2 };
+    item = { id: itemId, value: "item" };
   }, 2000);
   await request();
   return item;
 }
 
-// classic redux + pre-middleware
-/* 
-Note: This should be used when you want to capture an action and do something with the data before it reaches 
-the store and/or want to dispatch other actions along the way. 
-*/
-// Note: classic redux can also be done as regualr thunk like below
-export const preMiddleware = store => next => async (action) => {
-  const { dispatch, getState } = store;
-  const { type, payload } = action;
+const deleteItemRequest = async () => {
+  let success: boolean;
+  const request = () => setTimeout(() => {
+    success = true;
+  }, 2000);
+  await request();
+  return success;
+}
 
-  switch (type) {
-    case ADD_ITEM_ASYNC: {
-      const item = await requestItem();
-      dispatch(addItemAsync(item));
-    }
+export const addItemC = () => async (dispatch, getState) => {
+  const { items } = getState();
+  dispatch(requestStartC());
+  let item: IStoreItem;
+  try {
+    item = await addItemRequest(items);
+    dispatch(addItemSuccessC(item));
+  } catch (e) {
+    dispatch(addItemFailC());
   }
-  return next(action);
-};
+}
 
-// @reduxjs/toolkit + regular thunk
-export const addEntryAsyncTwo = () => async dispatch => {
-  dispatch(addEntryStarted());
-  const item = await requestItem();
-  dispatch(addEntryFinished(item));
+export const deleteItemC = () => async dispatch => {
+  dispatch(requestStartC());
+  const success = await deleteItemRequest();
+  if (success) {
+    dispatch(deleteItemSuccessC());
+  } else {
+    dispatch(deleteItemFailC());
+  }
+}
+
+export const addItemRTK = () => async (dispatch, getState) => {
+  const { items } = getState();
+  dispatch(requestStartRTK());
+  let item: IStoreItem;
+  try {
+    item = await addItemRequest(items);
+    dispatch(addItemSuccessRTK(item));
+  } catch (e) {
+    dispatch(addItemFailRTK());
+  }
+}
+
+export const deleteItemRTK = () => async dispatch => {
+  dispatch(requestStartRTK());
+  const success = await deleteItemRequest();
+  if (success) {
+    dispatch(deleteItemSuccessRTK());
+  } else {
+    dispatch(deleteItemFailRTK());
+  }
 }

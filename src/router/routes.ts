@@ -1,4 +1,5 @@
 import HelloWorld from 'packages/helloworld';
+// import ReduxMain from 'packages/redux/ReduxMain';
 
 export default [
   {
