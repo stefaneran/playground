@@ -1,5 +1,5 @@
 import HelloWorld from 'packages/helloworld';
-// import ReduxMain from 'packages/redux/ReduxMain';
+import { ReduxMain } from 'packages/redux';
 
 export default [
   {
@@ -8,6 +8,6 @@ export default [
   },
   {
     path: '/redux',
-    component: null
+    component: ReduxMain
   }
 ]

@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Paper, Button, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-import { 
-  addItemC as addItem, 
-  deleteItemC as deleteItem 
-} from './thunks/actions'
+import { addItem, deleteItem } from './thunks'
 
 const ClassicStore = ({ items = [], addItem, deleteItem }) => {
   return (
