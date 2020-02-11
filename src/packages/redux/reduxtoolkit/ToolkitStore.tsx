@@ -6,6 +6,7 @@ import { addItem, deleteItem } from './thunks'
 const ToolkitStore = ({ items = [], addItem, deleteItem }) => {
   return (
     <>
+      <h1> Redux Toolkit Store </h1>
       <Button onClick={addItem}>Add Item</Button>
       <Button onClick={deleteItem}>Delete Item</Button>
       <TableContainer component={Paper}>
@@ -31,8 +32,8 @@ const ToolkitStore = ({ items = [], addItem, deleteItem }) => {
 }
 
 const mapStateToProps = state => ({
-  items: state.classic.items,
-  loading: state.classic.loading
+  items: state.items,
+  loading: state.loading
 });
 
 const mapDispatchToProps = {

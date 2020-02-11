@@ -1,5 +1,5 @@
-import HelloWorld from 'packages/helloworld';
-import { ReduxMain } from 'packages/redux';
+import HelloWorld from '../packages/helloworld';
+import { ReduxMain } from '../packages/redux';
 
 export default [
   {

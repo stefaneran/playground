@@ -19,7 +19,7 @@ const AppRouter = () => {
           <div> Welcome to the Homepage! </div>
         </Route>
       </Switch>
-    </Router>
+    </Router> 
   )
 }
 

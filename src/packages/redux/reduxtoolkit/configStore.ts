@@ -9,9 +9,11 @@ import reducer, { initialState as preloadedState } from './store';
 export default () => {
 
   // Note: If using combineReducer, preloadedState's shape has to match the combined result
-  /* const rootReducer = combineReducers({
+  /* 
+  const rootReducer = combineReducers({
     toolkit: reducer
-  }); */
+  }); 
+  */
 
   const middleware = [...getDefaultMiddleware(), thunk];
 

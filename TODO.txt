@@ -1,13 +1,10 @@
 
 Redux:
-- Finish setting up Classic store
-- Make both render 
 - Test add/delete
+- Add sagas
+- Find a good way to switch between Thunks and Sagas (passing a prop)
 
 Main:
-- Make route for redux work
-
-Later:
 - Add linting
 - Promises playground
 - Generator playground

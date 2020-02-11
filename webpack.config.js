@@ -11,11 +11,11 @@ module.exports = {
     port: 4200
   },
 
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: ['babel-polyfill', path.resolve(__dirname, "src/index.js")],
 
   resolve: {
     alias: {
-      packages: path.resolve(__dirname, './src/packages/'),
+      "packages": path.resolve(__dirname, './src/packages/'),
     },
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
   },
