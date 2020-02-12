@@ -1,14 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Button, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-import { addItem, deleteItem } from './thunks'
+import { addItem, deleteItem } from './thunks';
 
-const ToolkitStore = ({ items = [], addItem, deleteItem }) => {
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: '0.3em',
+    padding: '0.2em 0.3em'
+  }
+}));
+
+const ToolkitStore = ({ items = [], loading, addItem, deleteItem }) => {
+  const classes = useStyles(undefined);
   return (
     <>
-      <h1> Redux Toolkit Store </h1>
-      <Button onClick={addItem}>Add Item</Button>
-      <Button onClick={deleteItem}>Delete Item</Button>
+      <h1> Redux Toolkit Store {loading && "(Loading...)"} </h1>
+      <Button color="primary" className={classes.button} onClick={addItem}>Add Item</Button>
+      <Button color="primary" className={classes.button} onClick={deleteItem}>Delete Item</Button>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -19,7 +28,7 @@ const ToolkitStore = ({ items = [], addItem, deleteItem }) => {
           </TableHead>
           <TableBody>
             {items.length > 0 && items.map(item => (
-              <TableRow>
+              <TableRow key={item.id}>
                 <TableCell>{item.id}</TableCell>
                 <TableCell>{item.value}</TableCell>
               </TableRow>

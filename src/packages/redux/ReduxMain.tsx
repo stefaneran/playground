@@ -9,7 +9,7 @@ const ReduxMain = () => {
     <>
       <h1>Redux Test</h1>
       <Paper>
-        <Grid container>
+        <Grid container direction="column">
           <Grid item>
             {ClassicStore()}
           </Grid>

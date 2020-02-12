@@ -35,7 +35,7 @@ export const reducer = (state = initialState, action) => {
     case ADD_ITEM_SUCCESS: {
       return {
         ...state,
-        items: [...items, action.payload],
+        items: [...state.items, action.payload],
         loading: false
       }
     }
@@ -49,7 +49,7 @@ export const reducer = (state = initialState, action) => {
       const itemId = state.items.length - 1;
       return {
         ...state,
-        items: items.filter(item => item.id !== itemId),
+        items: state.items.filter(item => item.id !== itemId),
         loading: false
       }
     }

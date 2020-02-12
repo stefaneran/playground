@@ -2,6 +2,7 @@
 Redux:
 - Test add/delete
 - Add sagas
+- Make front end better
 - Find a good way to switch between Thunks and Sagas (passing a prop)
 
 Main:
