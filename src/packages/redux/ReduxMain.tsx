@@ -1,20 +1,19 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import ClassicStore from './classic/index'; // TODO Check how to remove "index"
-import ToolkitStore from './reduxtoolkit/index'; // TODO Check how to remove "index"
+import * as React from 'react';
+import { Paper, Grid } from '@material-ui/core';
+import ClassicStore, { store as classicStore } from './classic/index'; // TODO Check how to remove "index"
+import ToolkitStore, { store as toolkitStore } from './reduxtoolkit/index'; // TODO Check how to remove "index"
 
 const ReduxMain = () => {
   return (
     <>
       <h1>Redux Test</h1>
-      <Paper>
+      <Paper style={{padding:'1em'}}>
         <Grid container direction="column">
           <Grid item>
-            {ClassicStore()}
+            <ClassicStore store={classicStore} />
           </Grid>
           <Grid item>
-            {ToolkitStore()}
+            <ToolkitStore store={toolkitStore} />
           </Grid>
         </Grid>
       </Paper>

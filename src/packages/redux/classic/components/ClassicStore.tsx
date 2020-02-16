@@ -1,15 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Button, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-import {
-  addItem, 
-  deleteItem
-} from '../store/store';
-import { 
-  addItemThunk,
-  deleteItemThunk 
-} from '../actions/thunks';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -28,6 +19,7 @@ const ClassicStore = ({ items = [], loading, addItem, deleteItem, addItemThunk, 
       <br />
       <Button variant="contained" color="primary" className={classes.button} onClick={addItem}>Add Item Saga</Button>
       <Button variant="contained" color="primary" className={classes.button} onClick={deleteItem}>Delete Item Saga</Button>
+      <br />
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -50,19 +42,4 @@ const ClassicStore = ({ items = [], loading, addItem, deleteItem, addItemThunk, 
   )
 }
 
-const mapStateToProps = state => ({
-  items: state.items,
-  loading: state.loading
-});
-
-const mapDispatchToProps = {
-  addItem,
-  deleteItem,
-  addItemThunk,
-  deleteItemThunk
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ClassicStore);
+export default ClassicStore;

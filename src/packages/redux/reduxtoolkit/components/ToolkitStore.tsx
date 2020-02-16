@@ -1,8 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Button, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-import { addItemThunk, deleteItemThunk } from '../actions/thunks';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -11,13 +9,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ToolkitStore = ({ items = [], loading, addItem, deleteItem }) => {
+const ToolkitStore = ({ items = [], loading, addItemThunk, deleteItemThunk }) => {
   const classes = useStyles(undefined);
   return (
     <>
       <h1> Redux Toolkit Store {loading && "(Loading...)"} </h1>
       <Button variant="contained" color="primary" className={classes.button} onClick={addItemThunk}>Add Item Thunk</Button>
       <Button variant="contained" color="primary" className={classes.button} onClick={deleteItemThunk}>Delete Item Thunk</Button>
+      <br />
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -40,17 +39,4 @@ const ToolkitStore = ({ items = [], loading, addItem, deleteItem }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  items: state.items,
-  loading: state.loading
-});
-
-const mapDispatchToProps = {
-  addItemThunk,
-  deleteItemThunk
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ToolkitStore);
+export default ToolkitStore;

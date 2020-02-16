@@ -1,8 +1,31 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import ClassicStore from './components/ClassicStore';
 import configureStore from './store/configStore';
+import {
+    addItem, 
+    deleteItem
+  } from './store/store';
+  import { 
+    addItemThunk,
+    deleteItemThunk 
+  } from './actions/thunks';
 
-const store = configureStore();
+export const store = configureStore();
 
-export default () => <ClassicStore store={store} />;
+const mapStateToProps = state => ({
+    items: state.items,
+    loading: state.loading
+  });
+  
+const mapDispatchToProps = {
+  addItem,
+  deleteItem,
+  addItemThunk,
+  deleteItemThunk
+}
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ClassicStore);
 

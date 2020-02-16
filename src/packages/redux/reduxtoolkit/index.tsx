@@ -1,7 +1,21 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import ToolkitStore from './components/ToolkitStore';
 import configureStore from './store/configStore';
+import { addItemThunk, deleteItemThunk } from './actions/thunks';
 
-const store = configureStore();
+export const store = configureStore();
 
-export default () => <ToolkitStore store={store} />
+const mapStateToProps = state => ({
+	items: state.items,
+	loading: state.loading
+});
+
+const mapDispatchToProps = {
+	addItemThunk,
+	deleteItemThunk
+}
+  
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(ToolkitStore);

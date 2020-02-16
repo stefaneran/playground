@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"allowJs": true,
 		"jsx": "react",
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
 			"@packages": ["./src/packages"],
 			"@constants": ["./src/constants"],
 		}
 	},
-	"exclude": ["node_modules"]
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
 }
