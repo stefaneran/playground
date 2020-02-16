@@ -2,7 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Button, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-import { addItem, deleteItem } from './thunks';
+import {
+  addItem, 
+  deleteItem
+} from '../store/store';
+import { 
+  addItemThunk,
+  deleteItemThunk 
+} from '../actions/thunks';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -11,13 +18,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ToolkitStore = ({ items = [], loading, addItem, deleteItem }) => {
+const ClassicStore = ({ items = [], loading, addItem, deleteItem, addItemThunk, deleteItemThunk }) => {
   const classes = useStyles(undefined);
   return (
     <>
-      <h1> Redux Toolkit Store {loading && "(Loading...)"} </h1>
-      <Button color="primary" className={classes.button} onClick={addItem}>Add Item</Button>
-      <Button color="primary" className={classes.button} onClick={deleteItem}>Delete Item</Button>
+      <h1> Classic Store {loading && "(Loading...)"} </h1>
+      <Button variant="contained" color="primary" className={classes.button} onClick={addItemThunk}>Add Item Thunk</Button>
+      <Button variant="contained" color="primary" className={classes.button} onClick={deleteItemThunk}>Delete Item Thunk</Button>
+      <br />
+      <Button variant="contained" color="primary" className={classes.button} onClick={addItem}>Add Item Saga</Button>
+      <Button variant="contained" color="primary" className={classes.button} onClick={deleteItem}>Delete Item Saga</Button>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -47,10 +57,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addItem,
-  deleteItem
+  deleteItem,
+  addItemThunk,
+  deleteItemThunk
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ToolkitStore);
+)(ClassicStore);

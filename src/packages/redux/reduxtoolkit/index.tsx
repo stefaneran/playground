@@ -1,6 +1,6 @@
 import React from 'react';
-import ToolkitStore from './ToolkitStore';
-import configureStore from './configStore';
+import ToolkitStore from './components/ToolkitStore';
+import configureStore from './store/configStore';
 
 const store = configureStore();
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -6,9 +6,10 @@ import {
 } from 'react-router-dom';
 import routes from './routes';
 
-const AppRouter = () => {
+const AppRouter = (props) => {
   return (
     <Router>
+      {props.children}
       <Switch>
         {routes.map(route => (
           <Route key={route.path} path={route.path}>

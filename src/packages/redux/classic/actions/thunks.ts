@@ -4,11 +4,11 @@ import {
   addItemFail,
   deleteItemSuccess,
   deleteItemFail
-} from './store';
-import { addItemRequest, deleteItemRequest } from '../requests';
-import { IStoreItem } from '../index';
+} from '../store/store';
+import { addItemRequest, deleteItemRequest } from '../../requests';
+import { IStoreItem } from '../../index';
 
-export const addItem = () => async (dispatch, getState) => {
+export const addItemThunk = () => async (dispatch, getState) => {
   const { items } = getState();
   dispatch(requestStart());
   let item: IStoreItem;
@@ -20,7 +20,7 @@ export const addItem = () => async (dispatch, getState) => {
   }
 }
 
-export const deleteItem = () => async dispatch => {
+export const deleteItemThunk = () => async dispatch => {
   dispatch(requestStart());
   const success = await deleteItemRequest();
   if (success) {

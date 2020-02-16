@@ -1,6 +1,6 @@
 import React from 'react';
-import ClassicStore from './ClassicStore';
-import configureStore from './configStore';
+import ClassicStore from './components/ClassicStore';
+import configureStore from './store/configStore';
 
 const store = configureStore();
 

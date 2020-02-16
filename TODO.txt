@@ -1,11 +1,18 @@
 
 Redux:
-- Test add/delete
-- Add sagas
-- Make front end better
-- Find a good way to switch between Thunks and Sagas (passing a prop)
+- Add immer
+- Combine reducers example
 
 Main:
 - Add linting
+- Setup tsconfig properly (no red lines under alias) - Check work projects
+  - Check for 'esModuleInterop'
+- Add global notification system (snackbar)
+- Add global header with drop down for package links
+
+Packages:
 - Promises playground
 - Generator playground
+- lodash playground
+- Static content playground 
+  - SVG example
