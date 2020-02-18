@@ -1,5 +1,6 @@
 import HelloWorld from '@packages/helloworld';
 import { ReduxMain } from '@packages/redux';
+import { GeneratorMain } from '@packages/generators';
 
 export default [
   {
@@ -11,5 +12,10 @@ export default [
     path: '/redux',
     title: 'Redux',
     component: ReduxMain
+  },
+  {
+    path: '/generator',
+    title: 'Generator & Iterators',
+    component: GeneratorMain
   }
 ]

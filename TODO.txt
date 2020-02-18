@@ -3,6 +3,9 @@ Redux:
 - Add immer
 - Combine reducers example
 
+Generator:
+- Generator - Basic - Make it work
+
 Main:
 - Add linting
 - Setup tsconfig properly (no red lines under alias) - Check work projects
@@ -12,8 +15,8 @@ Main:
 
 Packages:
 - Promises playground
-- Generator playground
 - lodash playground
+- Hooks playground
 - Static content playground 
   - SVG example
 
