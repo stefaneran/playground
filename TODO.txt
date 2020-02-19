@@ -3,8 +3,10 @@ Redux:
 - Add immer
 - Combine reducers example
 
-Generator:
-- Generator - Basic - Make it work
+Iterators:
+- Generator - Finish video (13:15) https://www.youtube.com/watch?v=EzdgkEMvrvA
+- Style better
+- Make Iterator examples
 
 Main:
 - Add linting
@@ -19,6 +21,3 @@ Packages:
 - Hooks playground
 - Static content playground 
   - SVG example
-
-
-// Testing commit

@@ -3,7 +3,7 @@ import { Paper, Grid } from '@material-ui/core';
 import GeneratorDemo from './generators/GeneratorDemo';
 import IteratorDemo from './iterators/IteratorDemo';
 
-const GeneratorMain = () => {
+const IteratorMain = () => {
   return (
     <Paper>
       <Grid container direction="column">
@@ -18,4 +18,4 @@ const GeneratorMain = () => {
   )
 }
 
-export default GeneratorMain;
+export default IteratorMain;
