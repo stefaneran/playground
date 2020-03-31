@@ -8,7 +8,9 @@ Iterators:
 - Style better
 - Make Iterator examples
 
-Main:
+-----
+Main / General:
+-----
 - Add linting
 - Setup tsconfig properly (no red lines under alias) - Check work projects
   - Check for 'esModuleInterop'
@@ -16,6 +18,7 @@ Main:
 - Add global header with drop down for package links
 
 Packages:
+- Webpack playground
 - Promises playground
 - lodash playground
 - Hooks playground
