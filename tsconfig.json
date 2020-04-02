@@ -3,8 +3,8 @@
 		"jsx": "react",
 		"baseUrl": ".",
 		"paths": {
-			"@packages": ["./src/packages"],
-			"@constants": ["./src/constants"],
+			"@packages/*": ["./src/packages/*"],
+			"@constants/*": ["./src/constants/*"],
 		}
 	},
 	"include": ["src/**/*"],
