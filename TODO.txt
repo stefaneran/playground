@@ -1,3 +1,5 @@
+React:
+- useSelector
 
 Redux:
 - Add immer
