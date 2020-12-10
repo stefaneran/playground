@@ -2,20 +2,20 @@ import { connect } from 'react-redux';
 import ClassicStore from './components/ClassicStore';
 import configureStore from './store/configStore';
 import {
-    addItem, 
-    deleteItem
-  } from './store/store';
-  import { 
-    addItemThunk,
-    deleteItemThunk 
-  } from './actions/thunks';
+  addItem, 
+  deleteItem
+} from './store/store';
+import { 
+  addItemThunk,
+  deleteItemThunk 
+} from './actions/thunks';
 
 export const store = configureStore();
 
 const mapStateToProps = state => ({
-    items: state.items,
-    loading: state.loading
-  });
+  items: state.items,
+  loading: state.loading
+});
   
 const mapDispatchToProps = {
   addItem,
@@ -24,8 +24,8 @@ const mapDispatchToProps = {
   deleteItemThunk
 }
   
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ClassicStore);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClassicStore);
 

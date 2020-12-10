@@ -13,16 +13,17 @@ Iterators:
 -----
 Main / General:
 -----
+- Add global header with drop down for package links
 - Add linting
 - Setup tsconfig properly (no red lines under alias) - Check work projects
   - Check for 'esModuleInterop'
 - Add global notification system (snackbar)
-- Add global header with drop down for package links
+
 
 Packages:
-- Webpack playground
-- Promises playground
-- lodash playground
 - Hooks playground
+- Promises playground
+- Webpack playground
+- lodash playground
 - Static content playground 
   - SVG example
