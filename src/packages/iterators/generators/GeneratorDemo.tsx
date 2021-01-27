@@ -1,9 +1,40 @@
 import * as React from 'react';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Paper, Typography, Button } from '@material-ui/core';
-import { basicGenerator, forGenerator, infiniteGenerator } from './generators';
+import { 
+  basicGenerator, 
+  basicCode,
+  forGenerator, 
+  forCode,
+  infiniteGenerator,
+  infiniteCode
+} from './generators';
 import { basicHandler, forHandler, infiniteHandler } from './handlers';
 
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  module: {
+    height: '220px',
+    display: 'flex',
+    marginBottom: '1em',
+    overflow: 'hidden'
+  },
+  example: {
+    padding: '1em',
+    width: '50%',
+    height: '100%'
+  },
+  code: {
+    padding: '0 1em 0.5em 1em',
+    width: '50%',
+    height: '100%',
+    color: '#fff',
+    background: '#000',
+    overflowY: 'auto'
+  }
+}))
+
 const GeneratorDemo = () => {
+  const classes = useStyles();
 
   // Super basic example
   const [basicOutput, setBasicOutput] = React.useState('');
@@ -18,38 +49,59 @@ const GeneratorDemo = () => {
   const infiniteGeneratorRef = React.useRef(infiniteGenerator());
 
   return (
-    <Paper>
+    <Paper style={{ padding: '0.5em' }}>
       <Typography> Generator Demo </Typography>
-      <Paper>
-        <Typography> Basic Generator </Typography>
-        <Button 
-          variant="contained" color="primary" 
-          onClick={basicHandler(basicGeneratorRef, basicOutput, setBasicOutput)}
-        >
-          Next
-        </Button>
-        <Typography> Basic Output: {basicOutput} </Typography>
-      </Paper>
-      <Paper>
-        <Typography> For Loop Generator </Typography>
-        <Button 
-          variant="contained" color="primary" 
-          onClick={forHandler(forGeneratorRef, forOutput, setForOutput)}
-        >
-          Run
-        </Button>
-        <Typography> For Loop Output: {forOutput} </Typography>
-      </Paper>
-      <Paper>
-        <Typography> Infinite Generator </Typography>
-        <Button 
-          variant="contained" color="primary" 
-          onClick={infiniteHandler(infiniteGeneratorRef, infiniteOutput, setInfiniteOutput)}
-        >
-          Next Iteration
-        </Button>
-        <Typography> Infinite Output: {infiniteOutput} </Typography>
-      </Paper>
+      <div className={classes.module}>
+        <div className={classes.example}>
+          <Typography> Basic Generator </Typography>
+          <Button 
+            variant="contained" color="primary" 
+            onClick={basicHandler(basicGeneratorRef, basicOutput, setBasicOutput)}
+          >
+            Next
+          </Button>
+          <Typography> Basic Output: {basicOutput} </Typography>
+        </div>
+        <div className={classes.code}>
+          <pre>
+            {basicCode}
+          </pre>
+        </div>
+      </div>
+      <div className={classes.module}>
+        <div className={classes.example}>
+          <Typography> For Loop Generator </Typography>
+          <Button 
+            variant="contained" color="primary" 
+            onClick={forHandler(forGeneratorRef, forOutput, setForOutput)}
+          >
+            Run
+          </Button>
+          <Typography> For Loop Output: {forOutput} </Typography>
+        </div>
+        <div className={classes.code}>
+          <pre>
+            {forCode}
+          </pre>
+        </div>
+      </div>
+      <div className={classes.module}>
+        <div className={classes.example}>
+          <Typography> Infinite Generator </Typography>
+          <Button 
+            variant="contained" color="primary" 
+            onClick={infiniteHandler(infiniteGeneratorRef, infiniteOutput, setInfiniteOutput)}
+          >
+            Next Iteration
+          </Button>
+          <Typography> Infinite Output: {infiniteOutput} </Typography>
+        </div>
+        <div className={classes.code}>
+          <pre>
+            {infiniteCode}
+          </pre>
+        </div>
+      </div>
     </Paper>
   )
 }

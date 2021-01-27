@@ -4,11 +4,6 @@ import { IteratorMain } from '@packages/iterators';
 
 export default [
   {
-    path: '/helloworld',
-    title: 'Hello World',
-    component: HelloWorld
-  },
-  {
     path: '/redux',
     title: 'Redux',
     component: ReduxMain
