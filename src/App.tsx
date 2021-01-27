@@ -1,24 +1,7 @@
 import * as React from 'react';
 import AppRouter from './router/AppRouter';
-import { Link } from 'react-router-dom';
-import { Paper, Button } from '@material-ui/core';
 import routes from './router/routes';
-
-const containerStyles = {
-  display: 'flex',
-  flexDirection: 'column'
-}
-
-const buttonStyles = {
-  margin: '0.3em'
-}
-
-const linkStyles = {
-  color: '#fff', 
-  textDecoration: 'none',
-  width: '100%',
-  height: '100%'
-}
+import Menu from './Menu'
 
 class App extends React.Component {
   constructor(props) {
@@ -27,17 +10,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div style={{ padding: '3em 1em' }}>
         <AppRouter>
-          <Paper style={containerStyles}>
-            {routes.map(route => (
-              <Button style={buttonStyles} color="primary" variant="contained" key={route.path}>
-                <Link style={linkStyles} to={route.path}>{route.title}</Link>
-              </Button>
-            ))}
-          </Paper>
+          <Menu routes={routes} />
         </AppRouter>
-      </>
+      </div>
     );
   }
 }

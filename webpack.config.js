@@ -24,6 +24,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'build.js',
+    publicPath: '/'
   },
 
   module: {
@@ -32,6 +33,17 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
       }
     ]
   },
